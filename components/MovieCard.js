@@ -2,29 +2,28 @@ import Image from "next/image";
 import { StarIcon, DotsVerticalIcon } from "@heroicons/react/solid";
 import { ThumbUpIcon } from "@heroicons/react/outline";
 
-export default function MovieCard() {
+export default function MovieCard({ movie }) {
+  console.log(movie)
   return (
     <figure className="bg-white flex flex-col space-y-2 p-5 filter drop-shadow-xl">
       <div className="flex space-x-4 items-start">
         <div className="filter drop-shadow-xl transform -translate-y-10">
           <Image
-            src="https://via.placeholder.com/100"
-            width={350}
-            height={600}
+            src={movie ? movie.Poster : "https://via.placeholder.com/100"}
+            width={100}
+            height={200}
           />
         </div>
         <div className="flex flex-col">
-          <h1 className="font-medium text-2xl capitalize">Movie title</h1>
-          <p className="capitalize text-gray-300">movie genre</p>
+          <h1 className="font-medium text-2xl capitalize">{ movie ? movie.Title : 'Movie Title'}</h1>
+          <p className="capitalize text-gray-300">{ movie ? movie.Genre : 'Movie Genre'}</p>
           <div className="flex py-2">
-            {[...Array(5)].map((index) => (
+            {[...Array(4)].map((index) => (
               <StarIcon key={index} className="text-yellow-500 h-4" />
             ))}
           </div>
-          <p className="text-gray-500">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam
+          <p className="text-gray-500 overflow-ellipsis">
+            {movie ? movie.Plot: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enimad minim veniam'}
           </p>
         </div>
         <DotsVerticalIcon className="h-14 text-gray-400" />
@@ -45,7 +44,7 @@ export default function MovieCard() {
                 />
               ))}
             </div>
-            <p className="text-gray-500 text-xs">Krsiten Lam and 4 other's are watching this</p>
+            <p className="text-gray-500 text-xs">{movie ? movie.Director : 'Concept'} and 4 other's are watching this</p>
             <div className="flex text-blue-500 cursor-pointer filter drop-shadow-md">
               <ThumbUpIcon className="h-5 text-blue-500" />
               42
