@@ -3,7 +3,6 @@ import { StarIcon, DotsVerticalIcon } from "@heroicons/react/solid";
 import { ThumbUpIcon } from "@heroicons/react/outline";
 
 export default function MovieCard({ movie }) {
-  console.log(movie)
   return (
     <figure className="bg-white flex flex-col space-y-2 p-5 filter drop-shadow-xl">
       <div className="flex space-x-4 items-start">

@@ -32,10 +32,10 @@ export default function Home(props) {
       <main className="flex h-full bg-gray-100">
         <Sidebar />
         <section className="flex w-full flex-col p-10 md:p-20">
-          <div className="flex pb-20 justify-between">
-            <div className="flex items-center space-x-2">
+          <div className="flex pb-20 flex-grow-1 justify-between">
+            <div className="flex items-center space-x-2 border-b border-black">
               <SearchIcon className="h-5 text-gray-500" />
-              <input type="text" className="capitalize bg-transparent border-none flex-grow text-gray-500" placeholder="search movies..." onInput={()=> this.setMovies()} />
+              <input type="text" className="capitalize appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" placeholder="search movies..." />
             </div>
             <div className="flex items-center space-x-2">
               <h1 className="capitalize text-gray-500">trending</h1>
